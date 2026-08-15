@@ -3,6 +3,13 @@ name: Portfolio
 on:
     push:
         branches: [main]
+    workflow_dispatch:
+        inputs:
+            release_note:
+                description: 'Optional deployment notes'
+                type: string
+                required: false
+                default: 'Triggered by Atharv'
 
 permissions:
     contents: read
@@ -22,12 +29,13 @@ jobs:
             uses: actions/checkout@v4
 
           - name: setup github pages for web hosting
-            uses: actions/configure-pages@v4
+            uses: actions/configure-pages@v5
 
           - name: uploading static artifacts or packing the code
-            uses: actions/upload-pages-artifact@v4
+            uses: actions/upload-pages-artifact@v3
             with:
                 path: '.'
 
           - name: deploying on pages
+            id: deployment
             uses: actions/deploy-pages@v4
