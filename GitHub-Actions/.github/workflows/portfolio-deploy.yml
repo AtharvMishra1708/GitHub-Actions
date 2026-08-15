@@ -29,7 +29,7 @@ jobs:
             uses: actions/checkout@v4
 
           - name: setup github pages for web hosting
-            uses: actions/configure-github-pages@v5
+            uses: actions/configure-pages@v5
 
           - name: uploading static artifacts or packing the code
             uses: actions/upload-pages-artifact@v3
@@ -37,4 +37,5 @@ jobs:
                 path: '.'
 
           - name: deploying on pages
+            id: deployment
             uses: actions/deploy-pages@v4
