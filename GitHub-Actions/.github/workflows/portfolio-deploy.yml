@@ -1,0 +1,34 @@
+name: Portfolio
+
+on:
+    push:
+        branches: [main]
+
+    workflow_dispatch:
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+    
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        environment:
+            name: github-pages
+            url: ${{steps.deployment.outputs.page_url}}
+
+        steps:
+          - name: Code checkout
+            uses: actions/checkout@v4
+
+          - name: setup github pages for web hosting
+            uses: actions/configure-pages@v4
+
+          - name: uploading static artifacts or packing the code
+            uses: actions/upload-pages-artifact@v4
+            with:
+                path: '.'
+
+          - name: deploying on pages
+            uses: actions/deploy-pages@v4
