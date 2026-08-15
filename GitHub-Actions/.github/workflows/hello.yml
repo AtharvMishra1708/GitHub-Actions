@@ -1,0 +1,37 @@
+#this is workflow name
+name: Workflow
+
+#when it will run, trigger
+on:
+  push:
+    branches: [main]
+
+    paths:
+      - '**.html'
+
+#jobs inside workflow
+jobs:
+
+#name of job-1
+  greet:
+    #where it will run? github runner
+    runs-on: ubuntu-latest
+  #List of steps
+    steps:
+      - name: Say Hello to users
+        run: echo "Hello Users"
+
+      - name: Say Hello to username
+        run: echo "Hello $USER"
+
+#name of job-2
+  versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: version of docker and python
+        run: docker --version && python --version
+
+      - name: a short message
+        run: echo "Please find the versions"
+        
+  

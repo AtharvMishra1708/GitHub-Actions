@@ -1,0 +1,47 @@
+# name of workflow which will be displayed in the Actions tab
+name: CICD
+
+#mannual click workflow for delivery so its a continuos delivery
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_environment:
+        description: Choose the environment
+        type: choice
+        required: true
+        default: 'Dev'
+        options:
+          - Dev
+          - Prod
+          - Staging
+          
+jobs:
+
+  Code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: echo "Code clone from github"
+
+  Build:
+    needs: Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: build Docker container
+        run: echo "Docker container Build"
+
+  Test:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing container
+        run: echo "Testing Container"
+
+  Deploy:
+    needs: [Test]
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.deployment_environment == 'Prod'}}
+    steps:
+      - name: deploying app
+        run: echo "Docker compose deploying app"
