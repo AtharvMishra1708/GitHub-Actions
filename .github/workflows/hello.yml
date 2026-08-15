@@ -7,7 +7,7 @@ on:
     branches: [main]
 
     paths:
-      - '**.html'
+      - '**hello.html'
 
 #jobs inside workflow
 jobs:
