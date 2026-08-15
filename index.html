@@ -1,333 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atharv Mishra | Platform & DevOps Infrastructure Engineer</title>
-    <script src="https://cloudflare.com"></script>
-    <style>
-        :root {
-            --bg-deep: #030712;
-            --bg-surface: rgba(11, 19, 41, 0.6);
-            --bg-card: rgba(17, 28, 68, 0.4);
-            --cyan-glow: #06b6d4;
-            --emerald-accent: #10b981;
-            --royal-blue: #3b82f6;
-            --text-ghost: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-glow: rgba(6, 182, 212, 0.15);
-            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Atharv Mishra - DevOps and Platform Engineering Portfolio">
+  <title>Atharv Mishra | DevOps Portfolio</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            scroll-behavior: smooth;
-        }
+  <!-- Your existing CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-ghost);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-            z-index: 1; /* Locked text visibility layer preference */
-        }
+<body>
 
-        /* Interactive Layer Canvas fixed underneath all grid panels */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2; /* Pushed flat to the back floor layer */
-            pointer-events: none; /* Allows pointer clicks to pass directly onto links */
-        }
+  <!-- ================= NAVIGATION ================= -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#top">ATHARV<span>_</span></a>
 
-        /* Ambient Cyber Grid Overlay mesh pattern */
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px), 
-                linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            pointer-events: none;
-        }
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+      </div>
+    </div>
+  </nav>
 
-        /* Glassmorphism Navigation Bar Header */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(3, 7, 18, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-glow);
-            padding: 15px 0;
-        }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  <main id="top">
 
-        .nav-logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            color: var(--text-ghost);
-            text-transform: uppercase;
-        }
+    <!-- ================= HERO ================= -->
+    <section class="hero container">
 
-        .nav-logo span {
-            color: var(--cyan-glow);
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-        }
+      <div class="terminal-window">
 
-        .status-badge {
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid var(--emerald-accent);
-            color: var(--emerald-accent);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
-        }
+        <div class="terminal-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <small>atharv@devops:~</small>
+        </div>
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--emerald-accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--emerald-accent);
-            animation: pulse 2s infinite;
-        }
+        <div class="terminal-body">
 
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 14px var(--emerald-accent); }
-            100% { transform: scale(0.9); opacity: 0.5; }
-        }
+          <p>
+            <span class="prompt">atharv@ubuntu:~$</span>
+            whoami
+          </p>
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
+          <h1>Atharv Mishra</h1>
 
-        /* Hero Landing Component */
-        .hero {
-            padding: 100px 0 50px 0;
-            text-align: center;
-        }
+          <p>
+            <span class="prompt">role:</span>
+            Platform &amp; DevOps Engineer
+          </p>
 
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            margin-bottom: 12px;
-            color: var(--text-ghost);
-        }
+          <p>
+            <span class="prompt">status:</span>
+            <span class="online">● building</span>
+          </p>
 
-        .hero h1 span {
-            background: linear-gradient(to right, var(--cyan-glow), var(--royal-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 8px rgba(6, 182, 212, 0.2));
-        }
+        </div>
+      </div>
 
-        /* Terminal Neon Simulator text block */
-        .typing-terminal {
-            font-size: 1.4rem;
-            color: var(--cyan-glow);
-            font-weight: 500;
-            font-family: 'Courier New', Courier, monospace;
-            margin-bottom: 35px;
-            height: 35px;
-            text-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
-        }
 
-        .typed-cursor {
-            animation: blink 0.8s infinite;
-            color: var(--text-ghost);
-        }
+      <p class="eyebrow">
+        IT Support → DevOps / Platform Engineering
+      </p>
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+      <h2>
+        Building reliable systems,<br>
+        <span>one deployment at a time.</span>
+      </h2>
 
-        .contact-cluster {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+      <p class="hero-text">
+        I am a curious and practical engineer focused on Linux, Git,
+        GitHub Actions, Docker, CI/CD, cloud and observability.
+      </p>
 
-        .contact-btn {
-            background: rgba(11, 19, 41, 0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--border-glow);
-            color: var(--text-ghost);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--card-shadow);
-        }
+      <div class="actions">
+        <a class="btn primary" href="#projects">
+          View Projects
+        </a>
 
-        .contact-btn:hover {
-            border-color: var(--cyan-glow);
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-            background: rgba(11, 19, 41, 0.95);
-        }
+        <a
+          class="btn"
+          href="https://github.com/AtharvMishra1708"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+      </div>
 
-        /* Metrics Automation Dash Cards */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 50px 0;
-        }
+    </section>
 
-        .card-metric {
-            background: var(--bg-surface);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--border-glow);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
 
-        .card-metric:hover {
-            border-color: rgba(6, 182, 212, 0.4);
-            transform: translateY(-2px);
-        }
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section container">
 
-        .card-metric::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--cyan-glow), var(--royal-blue));
-        }
+      <div class="section-title">
+        <span>01</span>
+        About me
+      </div>
 
-        .metric-num {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--text-ghost);
-            font-family: 'Courier New', Courier, monospace;
-        }
+      <div class="about-grid">
 
-        /* Section Layout configurations */
-        .reveal-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        <div>
+          <h3>Curious. Practical. Persistent.</h3>
 
-        .reveal-element.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+          <p>
+            I like understanding why something works instead of only
+            memorising commands. My current path is to move deeper into
+            DevOps and platform engineering by learning the tools behind
+            modern infrastructure.
+          </p>
 
-        .section-header {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 60px 0 30px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid var(--border-glow);
-            padding-bottom: 12px;
-        }
+          <p>
+            I am comfortable starting from the basics, experimenting,
+            breaking things, fixing them and documenting what I learn.
+          </p>
+        </div>
 
-        .section-header i {
-            color: var(--cyan-glow);
-            filter: drop-shadow(0 0 5px var(--cyan-glow));
-        }
 
-        .skills-grid-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-        }
+        <div class="quote-card">
 
-        .skill-group-box {
-            background: var(--bg-card);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid var(--border-glow);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-        }
+          <div class="quote-mark">"</div>
 
-        .skill-group-box:hover {
-            border-color: rgba(6, 182, 212, 0.3);
-            background: rgba(17, 28, 68, 0.5);
-        }
+          <p>
+            You don't need to know everything yet. You need to keep
+            building, breaking, fixing and learning.
+          </p>
 
-        .skill-group-box h3 {
-            font-size: 1.15rem;
-            color: var(--text-ghost);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        </div>
 
-        .skill-group-box h3 i {
-            color: var(--royal-blue);
-        }
+      </div>
 
-        .pill-cluster {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+    </section>
 
-        .skill-pill {
-            background: rgba(3, 7, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-family: 'Courier New', Courier, monospace;
-            transition: all 0.25s ease;
-        }
 
-        .skill-pill:hover {
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section container">
+
+      <div class="section-title">
+        <span>02</span>
+        DevOps stack
+      </div>
+
+
+      <div class="skills">
+
+        <article>
+          <b>Linux</b>
+          <p>
+            Ubuntu · CLI · permissions · processes
+          </p>
+        </article>
+
+
+        <article>
+          <b>Git &amp; GitHub</b>
+          <p>
+            Branches · commits · repositories · workflows
+          </p>
+        </article>
+
+
+        <article>
+          <b>CI/CD</b>
+          <p>
+            GitHub Actions · YAML · automated deployment
+          </p>
+        </article>
+
+
+        <article>
+          <b>Containers</b>
+          <p>
+            Docker · images · containers · registries
+          </p>
+        </article>
+
+
+        <article>
+          <b>Observability</b>
+          <p>
+            Splunk · logs · searches · event analysis
+          </p>
+        </article>
+
+
+        <article>
+          <b>Cloud &amp; Infrastructure</b>
+          <p>
+            Learning cloud fundamentals and infrastructure automation
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section container">
+
+      <div class="section-title">
+        <span>03</span>
+        Projects
+      </div>
+
+
+      <div class="project-card">
+
+        <div class="project-top">
+
+          <div>
+
+            <span class="tag">
+              CI/CD
+            </span>
+
+            <h3>
+              GitHub Pages Portfolio Deployment
+            </h3>
+
+          </div>
+
+          <span class="check">
+            ✓ deployed
+          </span>
+
+        </div>
+
+
+        <p>
+          A static portfolio deployed automatically with GitHub Actions.
+          A push to the main branch triggers the workflow, packages the
+          website, creates a Pages artifact and deploys it to GitHub Pages.
+        </p>
+
+
+        <div class="pipeline">
+
+          <span>push</span>
+          <i>→</i>
+
+          <span>checkout</span>
+          <i>→</i>
+
+          <span>artifact</span>
+          <i>→</i>
+
+          <span>GitHub Pages</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= LEARNING JOURNEY ================= -->
+    <section id="journey" class="section container">
+
+      <div class="section-title">
+        <span>04</span>
+        Learning journey
+      </div>
+
+
+      <div class="timeline">
+
+        <div>
+          <b>01</b>
+
+          <div>
+            <h3>Linux &amp; Git</h3>
+
+            <p>
+              Building strong command-line and version-control fundamentals.
+            </p>
+          </div>
+        </div>
+
+
+        <div>
+          <b>02</b>
+
+          <div>
+            <h3>CI/CD &amp; GitHub Actions</h3>
+
+            <p>
+              Automating builds and deployments with workflow YAML.
+            </p>
+          </div>
+        </div>
+
+
+        <div>
+          <b>03</b>
+
+          <div>
+            <h3>Docker</h3>
+
+            <p>
+              Learning containers, images, networking and practical deployments.
+            </p>
+          </div>
+        </div>
+
+
+        <div>
+          <b>04</b>
+
+          <div>
+            <h3>Cloud &amp; Infrastructure</h3>
+
+            <p>
+              Moving toward production-grade DevOps and platform engineering.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ATHARV ================= -->
+    <section class="section container">
+
+      <div class="section-title">
+        <span>05</span>
+        What I think of Atharv
+      </div>
+
+
+      <div class="final-card">
+
+        <p>
+          From our conversations, you come across as someone who is
+          <strong>curious, practical and persistent</strong>.
+          You ask follow-up questions until the underlying idea makes sense.
+          That is a useful DevOps trait because infrastructure work often
+          requires understanding the reason behind a configuration, not just
+          copying a command.
+        </p>
+
+
+        <p>
+          Your biggest advantage is that you are willing to learn from
+          the ground up. Keep turning that curiosity into small working
+          projects.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+
+    <span>
+      © 2026 Atharv Mishra
+    </span>
+
+    <span>
+      Built with HTML · CSS · JavaScript
+    </span>
+
+  </footer>
+
+
+  <!-- Your existing JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
