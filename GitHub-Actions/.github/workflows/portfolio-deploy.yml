@@ -4,6 +4,12 @@ on:
     push:
         branches: [main]
     workflow_dispatch:
+        inputs:
+            release_note:
+                description: 'Optional deployment notes'
+                type: string
+                required: false
+                default: 'Triggered by Atharv'
 
 permissions:
     contents: read
