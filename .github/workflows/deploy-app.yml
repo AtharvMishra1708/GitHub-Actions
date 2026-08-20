@@ -6,7 +6,7 @@ on:
 jobs:
     deploy:
         runs-on: self-hosted
-        environment:
+        env:
             DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
         steps:
             
