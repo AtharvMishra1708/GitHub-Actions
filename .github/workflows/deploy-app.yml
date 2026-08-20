@@ -10,15 +10,16 @@ jobs:
         env:
             DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
         steps:
-            
             - name: checkout code
               uses: actions/checkout@v4
 
+            # Force Docker to download the absolute latest image layers from Docker Hub
             - name: pull latest image
-              run: docker compose pull
+              run: docker compose pull web
 
             - name: stop old container
               run: docker compose down
 
+            # Start up using the freshly pulled image
             - name: deploy with docker compose
-              run: docker compose up -d --build
+              run: docker compose up -d
