@@ -1,7 +1,8 @@
 name: Deploy Flask App
 
 on:
-    workflow_dispatch
+    push:
+        branches: [main]
 
 jobs:
     deploy:
@@ -18,6 +19,6 @@ jobs:
 
             - name: stop old container
               run: docker compose down
-              
+
             - name: deploy with docker compose
               run: docker compose up -d --build
