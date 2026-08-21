@@ -6,8 +6,9 @@ on:
     workflow_call:
 
 jobs:
-    runs-on: ubuntu-latest
-    strategy:
+    validate:
+        runs-on: ubuntu-latest
+        strategy:
             fail-fast: True
             matrix:
                 python-version: ['3.11','3.12','3.13']
