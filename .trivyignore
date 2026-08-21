@@ -1,0 +1,5 @@
+# Temporarily ignore Perl bugs until Debian releases an upstream patch
+CVE-2026-13221
+CVE-2026-42496
+CVE-2026-57433
+CVE-2026-8376
