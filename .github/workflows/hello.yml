@@ -3,11 +3,12 @@ name: Workflow
 
 #when it will run, trigger
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  #push:
+    ##branches: [main]
 
-    paths:
-      - '**hello.html'
+    #paths:
+      #- '**hello.html'
 
 #jobs inside workflow
 jobs:
