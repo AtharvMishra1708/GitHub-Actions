@@ -8,9 +8,16 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        env:
+            DOCKERHUB_USERNAME: ${{vars.DOCKERHUB_USERNAME}}
+            DOCKER_TAG: ${{github.event.workflow_run.head_sha}}
         steps:
             - name: code checkout
               uses: actions/checkout@v4
+              
+            - name: Set DOCKER_TAG environment variable
+              run: |
+                 echo "DOCKER_TAG=${{github.event.worflow_run.head_sha}}" >> $GITHUB_ENV
 
             - name: SSH to PROD server and create devops folder
               uses: appleboy/ssh-action@v1
@@ -43,5 +50,6 @@ jobs:
                     echo "Running app"
                     export DOCKERHUB_USERNAME=${{vars.DOCKERHUB_USERNAME}}
                     export DOCKER_TAG=${{github.event.workflow_run.head_sha}}
+                    export DOCKER_TAG=${{github.sha}}
                     echo ${{secrets.DOCKERHUB_TOKEN}} | docker login -u ${{vars.DOCKERHUB_USERNAME}} --password-stdin
                     cd ~/devops && docker compose up -d --build --force-recreate --pull always
